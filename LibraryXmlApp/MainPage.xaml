@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryXmlApp.MainPage"
+             Title="Кафедральна бібліотека">
+
+    <Grid Padding="20" RowSpacing="12" RowDefinitions="Auto,Auto,Auto,*">
+
+        <HorizontalStackLayout Grid.Row="0" Spacing="10">
+            <Button Text="Обрати XML-файл" Clicked="OnChooseFileClicked" />
+            <Label x:Name="FileLabel" Text="Файл не обрано" VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*" ColumnSpacing="10">
+            <Picker x:Name="AttributePicker" Grid.Column="0" Title="Атрибут"
+                    SelectedIndexChanged="OnAttributeChanged" />
+            <Picker x:Name="ValuePicker" Grid.Column="1" Title="Значення" />
+            <Picker x:Name="StrategyPicker" Grid.Column="2" Title="Спосіб пошуку" />
+        </Grid>
+
+        <HorizontalStackLayout Grid.Row="2" Spacing="10">
+            <Button Text="Search" Clicked="OnSearchClicked" />
+            <Button Text="Clear" Clicked="OnClearClicked" />
+            <Button Text="Transform to HTML" Clicked="OnTransformClicked" />
+            <Button Text="Exit" Clicked="OnExitClicked" />
+        </HorizontalStackLayout>
+
+        <Editor x:Name="OutputEditor" Grid.Row="3" IsReadOnly="True" />
+    </Grid>
+</ContentPage>
